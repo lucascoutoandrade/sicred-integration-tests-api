@@ -1,0 +1,12 @@
+# User-specific stuff
+.idea/**/workspace.xml
+.idea/
+.DS_Store
+cypress/screenshots/
+node_modules/
+/target/
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.xml
