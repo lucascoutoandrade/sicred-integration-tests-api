@@ -1,12 +1,7 @@
 pipeline {
      agent any
      stages{
-        stage('Deploy Backend API Simução de Credito') {
-            steps{
-                    git credentialsId:'github_login' ,url:'https://github.com/RodrigoQA/service-api-simulacao'
-                    bat 'mvn clean spring-boot:run -Dserver.port=8080'
-                }
-            }
+
         stage('Integration Test with RestAssured') {
              steps{
                     git credentialsId:'github_login' ,url:'https://github.com/RodrigoQA/sicred-integration-tests-api'
