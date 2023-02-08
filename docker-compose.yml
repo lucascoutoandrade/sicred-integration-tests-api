@@ -1,0 +1,5 @@
+version: "3"
+services:
+   backend:
+     container_name: simulacao:1.0
+     image: api-simulcao
