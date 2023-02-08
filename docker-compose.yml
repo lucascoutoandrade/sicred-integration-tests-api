@@ -1,5 +1,7 @@
 version: "3"
 services:
    backend:
-     container_name: simulacao
-     image: simulcao
+     container_name: api-simulacao
+     image: simulcao:1.0
+     ports:
+      - 8080:8080
