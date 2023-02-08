@@ -1,5 +1,5 @@
 version: "3"
 services:
    backend:
-     container_name: api-simulacao
-     image: api-simulcao
+     container_name: simulacao
+     image: simulcao
