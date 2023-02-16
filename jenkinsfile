@@ -3,34 +3,28 @@ pipeline {
 
     
      stages{
-        stage('Clonar Backend API Simucao de Credito') {
-            steps{
-              git credentialsId:'github_login' ,url:'https://github.com/RodrigoQA/sicred-integration-tests-api'
 
-                }
-            }
-
-        stage('Build Backend API Simucao de Credito') {
+        stage('Pull imagen Docker API Simucao de Credito') {
             steps{
                     sh 'docker pull rodrigolimaads/api-simulacao:1.0'
                 }
             }
 
-        stage('Deploy Backend API Simucao de Credito') {
+        stage('Subir imagen API Simucao de Credito') {
             steps{
-                  //  sh 'docker run --name simulacao -d -p 8080:8080 rodrigolimaads/api-simulacao:1.0'
-                  sh 'docker-compose up -d && sleep 15'
+              
+                  sh 'docker-compose up -d && sleep 5'
                 }
             }
 
         stage('Integration Test with RestAssured') {
              steps{
-             //       git credentialsId:'github_login' ,url:'https://github.com/RodrigoQA/sicred-integration-tests-api'
+                   git credentialsId:'github_login' ,url:'https://github.com/RodrigoQA/sicred-integration-tests-api'
                     bat 'mvn verify'
 
                   }
              }
-        stage('Removendo imagen') {
+        stage('Removendo imagen API Simucao de Credito') {
              steps{
                    sh 'docker rmi -f rodrigolimaads/api-simulacao:1.0 && docker stop simulacao && docker rm simulacao'
 
