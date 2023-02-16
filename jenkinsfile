@@ -6,7 +6,6 @@ pipeline {
         stage('Clonar Backend API Simucao de Credito') {
             steps{
               git credentialsId:'github_login' ,url:'https://github.com/RodrigoQA/sicred-integration-tests-api'
-            //  git credentialsId:'github_login' ,url:'https://github.com/RodrigoQA/service-api-simulacao'
 
                 }
             }
@@ -19,14 +18,15 @@ pipeline {
 
         stage('Deploy Backend API Simucao de Credito') {
             steps{
-                    sh 'docker run --name simulacao -d -p 8080:8080 rodrigolimaads/api-simulacao:1.0'
+                  //  sh 'docker run --name simulacao -d -p 8080:8080 rodrigolimaads/api-simulacao:1.0'
+                  sh 'docker-compose up -d && sleep 15'
                 }
             }
 
         stage('Integration Test with RestAssured') {
              steps{
              //       git credentialsId:'github_login' ,url:'https://github.com/RodrigoQA/sicred-integration-tests-api'
-                    bat 'sleep 10 && mvn verify'
+                    bat 'mvn verify'
 
                   }
              }
