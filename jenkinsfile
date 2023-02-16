@@ -1,32 +1,25 @@
 pipeline {
-     agent {label 'linux'}
+     agent any
 
-     environment {
-         DOCKERHUB_CREDENTIALS=credentialsId('docker_hub_login')
-     }
+    
      stages{
         stage('Clonar Backend API Simucao de Credito') {
             steps{
               git credentialsId:'github_login' ,url:'https://github.com/RodrigoQA/sicred-integration-tests-api'
-              git credentialsId:'github_login' ,url:'https://github.com/RodrigoQA/service-api-simulacao'
+            //  git credentialsId:'github_login' ,url:'https://github.com/RodrigoQA/service-api-simulacao'
 
                 }
             }
 
         stage('Build Backend API Simucao de Credito') {
             steps{
-                    sh 'docker build -t rodrigolimaads/api-simulacao:1.0 .'
+                    sh 'docker pull rodrigolimaads/api-simulacao:1.0'
                 }
             }
 
         stage('Deploy Backend API Simucao de Credito') {
             steps{
                     sh 'docker run --name simulacao -d -p 8080:8080 rodrigolimaads/api-simulacao:1.0'
-                }
-            }
-        stage('Start docker-compose') {
-            steps{
-                    bat 'docker-compose up -d'
                 }
             }
 
