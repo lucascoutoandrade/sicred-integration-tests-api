@@ -10,14 +10,14 @@ pipeline {
                 }
             }
 
-        stage('Subir imagen API Simucao de Credito') {
+        stage('Run imagen API Simucao de Credito') {
             steps{
               
                   sh 'docker-compose up -d && sleep 5'
                 }
             }
 
-        stage('Integration Test with RestAssured') {
+        stage('Run test API with RestAssured') {
              steps{
                    git credentialsId:'github_login' ,url:'https://github.com/RodrigoQA/sicred-integration-tests-api'
                     bat 'mvn verify'
