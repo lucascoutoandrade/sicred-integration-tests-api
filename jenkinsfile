@@ -13,7 +13,7 @@ pipeline {
 
         stage('Build Backend API Simucao de Credito') {
             steps{
-                    sh 'docker build -t rodrigolimaads/api-simulacao:1.0 .'
+                    sh 'docker pull rodrigolimaads/api-simulacao:1.0'
                 }
             }
 
