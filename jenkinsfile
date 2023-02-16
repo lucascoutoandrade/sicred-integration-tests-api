@@ -4,13 +4,13 @@ pipeline {
     
      stages{
 
-        stage('Pull imagen Docker API Simucao de Credito') {
+        stage('Pull Docker img API Simucao de Credito') {
             steps{
                     sh 'docker pull rodrigolimaads/api-simulacao:1.0'
                 }
             }
 
-        stage('Run imagen API Simucao de Credito') {
+        stage('Run img API Simucao de Credito') {
             steps{
               
                   sh 'docker-compose up -d && sleep 5'
@@ -24,7 +24,7 @@ pipeline {
 
                   }
              }
-        stage('Removendo imagen API Simucao de Credito') {
+        stage('Deletar Docker img API Simucao de Credito') {
              steps{
                    sh 'docker rmi -f rodrigolimaads/api-simulacao:1.0 && docker stop simulacao && docker rm simulacao'
 
