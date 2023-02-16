@@ -32,7 +32,7 @@ pipeline {
              }
         stage('Removendo imagen') {
              steps{
-                   sh 'docker rmi -f rodrigolimaads/api-simulacao:1.0'
+                   sh 'docker rmi -f rodrigolimaads/api-simulacao:1.0 && docker stop simulacao && docker rm simulacao'
 
                   }
              }
