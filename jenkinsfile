@@ -22,11 +22,6 @@ pipeline {
                     sh 'docker run --name simulacao -d -p 8080:8080 rodrigolimaads/api-simulacao:1.0'
                 }
             }
-        stage('Start docker-compose') {
-            steps{
-             //   bat 'docker-compose up -d'
-                }
-            }
 
         stage('Integration Test with RestAssured') {
              steps{
