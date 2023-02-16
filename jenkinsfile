@@ -26,7 +26,7 @@ pipeline {
         stage('Integration Test with RestAssured') {
              steps{
              //       git credentialsId:'github_login' ,url:'https://github.com/RodrigoQA/sicred-integration-tests-api'
-                    bat 'mvn test'
+                    bat 'sleep 10 && mvn verify'
 
                   }
              }
