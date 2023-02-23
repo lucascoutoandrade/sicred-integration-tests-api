@@ -79,11 +79,6 @@
             <artifactId>maven-surefire-plugin</artifactId>
             <version>2.19.1</version>
         </dependency>
-        <dependency>
-            <groupId>com.avast.gradle</groupId>
-            <artifactId>gradle-docker-compose-plugin</artifactId>
-            <version>0.16.11</version>
-        </dependency>
     </dependencies>
     <build>
         <plugins>
@@ -93,9 +88,9 @@
                 <version>2.22.2</version>
                 <configuration>
                     <!-- Include tags -->
-                    <groups>com_restricoes | regressivo</groups>
-                    <!-- Exclude tags -->
-                    <excludedGroups>withbug, in_progress</excludedGroups>
+           <!--         <groups>com_restricoes | regressivo</groups>
+                    &lt;!&ndash; Exclude tags &ndash;&gt;
+                    <excludedGroups>withbug, in_progress</excludedGroups>-->
                 </configuration>
             </plugin>
             <plugin>

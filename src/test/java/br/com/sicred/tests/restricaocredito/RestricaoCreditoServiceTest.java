@@ -2,7 +2,7 @@ package br.com.sicred.tests.restricaocredito;
 
 import br.com.sicred.client.RestricoesClient;
 import br.com.sicred.core.BaseTest;
-import br.com.sicred.core.Enums.Clientes;
+import br.com.sicred.core.enums.Clientes;
 import io.restassured.response.Response;
 import org.apache.http.HttpStatus;
 import org.junit.jupiter.api.DisplayName;

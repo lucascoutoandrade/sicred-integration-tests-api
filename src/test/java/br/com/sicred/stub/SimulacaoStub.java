@@ -1,7 +1,7 @@
 package br.com.sicred.stub;
 
-import br.com.sicred.core.Enums.ParcelasCredito;
-import br.com.sicred.core.Enums.ValoresCredito;
+import br.com.sicred.core.enums.ParcelasCredito;
+import br.com.sicred.core.enums.ValoresCredito;
 import br.com.sicred.dto.SimulacoesCreditoDTO;
 import net.datafaker.Faker;
 

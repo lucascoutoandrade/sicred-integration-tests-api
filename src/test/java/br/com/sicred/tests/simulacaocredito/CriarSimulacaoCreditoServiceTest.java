@@ -2,8 +2,8 @@ package br.com.sicred.tests.simulacaocredito;
 
 import br.com.sicred.client.SimulacoesCreditoClient;
 import br.com.sicred.core.BaseTest;
-import br.com.sicred.core.Enums.ParcelasCredito;
-import br.com.sicred.core.Enums.ValoresCredito;
+import br.com.sicred.core.enums.ParcelasCredito;
+import br.com.sicred.core.enums.ValoresCredito;
 import br.com.sicred.dto.SimulacoesCreditoDTO;
 import br.com.sicred.stub.SimulacaoStub;
 import io.restassured.response.Response;
@@ -17,7 +17,7 @@ import org.junit.jupiter.api.Test;
 import java.util.logging.Logger;
 
 import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertTrue;
+
 
 
 public class CriarSimulacaoCreditoServiceTest extends BaseTest {
@@ -196,7 +196,7 @@ public class CriarSimulacaoCreditoServiceTest extends BaseTest {
                 .then()
                 .statusCode(HttpStatus.SC_BAD_REQUEST)
                 .extract().path("erros.email");
-    //    Assertions.assertTrue(mensagemErro.equals("E-mail deve ser um e-mail válido")||mensagemErro.equals("não é um endereço de e-mail"),"descr_erro: "+mensagemErro+"");
+        Assertions.assertTrue(mensagemErro.equals("E-mail deve ser um e-mail válido")||mensagemErro.equals("não é um endereço de e-mail"),"descr_erro: "+mensagemErro+"");
 
     }
 

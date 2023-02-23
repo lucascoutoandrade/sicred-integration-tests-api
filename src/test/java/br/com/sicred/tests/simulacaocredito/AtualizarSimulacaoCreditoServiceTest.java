@@ -2,8 +2,8 @@ package br.com.sicred.tests.simulacaocredito;
 
 import br.com.sicred.client.SimulacoesCreditoClient;
 import br.com.sicred.core.BaseTest;
-import br.com.sicred.core.Enums.ParcelasCredito;
-import br.com.sicred.core.Enums.ValoresCredito;
+import br.com.sicred.core.enums.ParcelasCredito;
+import br.com.sicred.core.enums.ValoresCredito;
 import br.com.sicred.dto.SimulacoesCreditoDTO;
 import br.com.sicred.stub.SimulacaoStub;
 import io.restassured.response.Response;
@@ -13,17 +13,27 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 
+
 import static net.datafaker.providers.base.BaseFaker.instance;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
 
+/*
+@Epic("REST API Simulação de Crédito")
+@Feature("Validar a funcionalidade de atualização da simulação de crédito")
+*/
 public class AtualizarSimulacaoCreditoServiceTest extends BaseTest {
     SimulacoesCreditoDTO requestSimulacaoCredito;
     SimulacoesCreditoDTO responseSimulacoesCredito;
 
 
-    @Test
+
+  /*@Story("Put Request")
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Test Description : Atualizar o campo CPF")
+    */
     @Tags(value = {@Tag("regressivo"),@Tag("atualizar_cpf")})
+    @Test
     public void RealizarUmaAtualizacaoSimulacaoCreditoJaCadastradoNoAtributoCPF() {
             //Criar uma simulação de credito
         requestSimulacaoCredito = SimulacaoStub.criarSimulacaoCreditoValida();

@@ -1,4 +1,4 @@
-package br.com.sicred.core.Enums;
+package br.com.sicred.core.enums;
 
 public enum ParcelasCredito {
     NUMERO_PARCELAS_ABAIXO_DO_PERMITIDO {

@@ -1,4 +1,4 @@
-package br.com.sicred.core.Enums;
+package br.com.sicred.core.enums;
 
 public enum ValoresCredito {
 
