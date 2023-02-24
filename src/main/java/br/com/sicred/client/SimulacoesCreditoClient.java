@@ -1,6 +1,7 @@
 package br.com.sicred.client;
 
 import br.com.sicred.dto.SimulacoesCreditoDTO;
+import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import lombok.AccessLevel;
@@ -15,7 +16,8 @@ import static io.restassured.RestAssured.given;
 public class SimulacoesCreditoClient {
 
     public static SimulacoesCreditoDTO criarUmaNovaSimulacaoDeCredito(SimulacoesCreditoDTO simulacoesCredito) {
-      return  given().contentType(ContentType.JSON)
+      return  given().filter(new AllureRestAssured())
+                .contentType(ContentType.JSON)
                 .body(simulacoesCredito)
                 .when()
                 .post("simulacoes")
@@ -26,7 +28,7 @@ public class SimulacoesCreditoClient {
 
     }
     public static Response criarUmaNovaSimulacaoDeCreditoReturnResponse(SimulacoesCreditoDTO simulacoesCredito) {
-        return  given()
+        return  given().filter(new AllureRestAssured())
                 .body(simulacoesCredito)
                 .when()
                 .post("simulacoes")
@@ -36,7 +38,7 @@ public class SimulacoesCreditoClient {
     }
 
     public static Response criarUmaNovaSimulacaoDeCreditoComCPFJaCadastrado(SimulacoesCreditoDTO simulacoesCredito) {
-        return  given()
+        return  given().filter(new AllureRestAssured())
                 .body(simulacoesCredito)
                 .when()
                 .post("simulacoes")
@@ -45,7 +47,7 @@ public class SimulacoesCreditoClient {
 
     }
     public static Response criarUmaNovaSimulacaoDeCreditoSemInformarAtributosObrigatorios(SimulacoesCreditoDTO simulacoesCredito) {
-        return  given()
+        return  given().filter(new AllureRestAssured())
                 .body(simulacoesCredito)
                 .when()
                 .post("simulacoes")
@@ -56,7 +58,7 @@ public class SimulacoesCreditoClient {
 
     public static Response atualizarUmaSimulacaoDeCreditoJaCadastrada(SimulacoesCreditoDTO simulacoesCredito) {
 
-        return  given()
+        return  given().filter(new AllureRestAssured())
                 .contentType(ContentType.JSON)
                 .basePath("simulacoes")
                 .body(simulacoesCredito)
@@ -68,7 +70,7 @@ public class SimulacoesCreditoClient {
     }
     public static Response atualizarCPFUmaSimulacaoDeCreditoJaCadastrada(SimulacoesCreditoDTO novoCpf, SimulacoesCreditoDTO simulacaoCriada) {
 
-        return  given()
+        return  given().filter(new AllureRestAssured())
                 .contentType(ContentType.JSON)
                 .basePath("simulacoes")
                 .body(novoCpf)
@@ -81,7 +83,7 @@ public class SimulacoesCreditoClient {
 
 
     public static Response deletarUmaSimulacaoCreditoJaCadastrada(SimulacoesCreditoDTO responseSimulacoesCredito) {
-        return given()
+        return given().filter(new AllureRestAssured())
                 .contentType(ContentType.JSON)
                 .basePath("simulacoes")
                 .when()
@@ -92,7 +94,7 @@ public class SimulacoesCreditoClient {
 
     public static List<SimulacoesCreditoDTO> pesquisarListaSimulacaoCreditoCadastrados() {
 
-          return  given()
+          return  given().filter(new AllureRestAssured())
                 .basePath("simulacoes")
                 .when()
                 .get()
@@ -104,7 +106,7 @@ public class SimulacoesCreditoClient {
     }
 
     public static List<Integer> buscarIdsDasSimulacoesCadastradas() {
-        return  given()
+        return  given().filter(new AllureRestAssured())
                 .basePath("simulacoes")
                 .when()
                 .get()
@@ -116,7 +118,7 @@ public class SimulacoesCreditoClient {
     }
 
     public static List<SimulacoesCreditoDTO> pesquisarSimulacaoCreditoListaVazia() {
-        return  given()
+        return  given().filter(new AllureRestAssured())
                 .basePath("simulacoes")
                 .when()
                 .get()
@@ -127,7 +129,7 @@ public class SimulacoesCreditoClient {
     }
 
     public static Response pesquisarSimulacaoDeCreditoPorCPF(SimulacoesCreditoDTO requestSimulacaoCredito) {
-       return    given()
+       return    given().filter(new AllureRestAssured())
                 .basePath("simulacoes")
                 .when()
                 .get(requestSimulacaoCredito.getCpf())

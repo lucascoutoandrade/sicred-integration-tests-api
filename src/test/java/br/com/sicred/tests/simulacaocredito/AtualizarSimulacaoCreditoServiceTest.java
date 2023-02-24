@@ -6,35 +6,34 @@ import br.com.sicred.core.enums.ParcelasCredito;
 import br.com.sicred.core.enums.ValoresCredito;
 import br.com.sicred.dto.SimulacoesCreditoDTO;
 import br.com.sicred.stub.SimulacaoStub;
+import io.qameta.allure.*;
 import io.restassured.response.Response;
 import net.datafaker.Faker;
 import org.apache.http.HttpStatus;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Tags;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
+
 
 
 import static net.datafaker.providers.base.BaseFaker.instance;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
 
-/*
 @Epic("REST API Simulação de Crédito")
 @Feature("Validar a funcionalidade de atualização da simulação de crédito")
-*/
 public class AtualizarSimulacaoCreditoServiceTest extends BaseTest {
     SimulacoesCreditoDTO requestSimulacaoCredito;
     SimulacoesCreditoDTO responseSimulacoesCredito;
 
 
-
-  /*@Story("Put Request")
+    @Test
+    @Tags(value = {@Tag("regressivo"),@Tag("atualizar_cpf")})
+    @Story("Atualizar Dados Cadastrais")
     @Severity(SeverityLevel.NORMAL)
     @Description("Test Description : Atualizar o campo CPF")
-    */
-    @Tags(value = {@Tag("regressivo"),@Tag("atualizar_cpf")})
-    @Test
+    @DisplayName("Test Description : Atualizar o campo CPF")
     public void RealizarUmaAtualizacaoSimulacaoCreditoJaCadastradoNoAtributoCPF() {
+
+
             //Criar uma simulação de credito
         requestSimulacaoCredito = SimulacaoStub.criarSimulacaoCreditoValida();
         responseSimulacoesCredito = SimulacoesCreditoClient.criarUmaNovaSimulacaoDeCredito(requestSimulacaoCredito);
@@ -52,6 +51,9 @@ public class AtualizarSimulacaoCreditoServiceTest extends BaseTest {
 
     @Test
     @Tags(value = {@Tag("regressivo"),@Tag("atualizar_nome")})
+    @Story("Atualizar Dados Cadastrais")
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Test Description : Atualizar o campo NOME")
     public void RealizarUmaAtualizacaoSimulacaoCreditoJaCadastradoNoAtributoNome() {
         //Criar uma simulação de credito
         requestSimulacaoCredito = SimulacaoStub.criarSimulacaoCreditoValida();
@@ -70,6 +72,9 @@ public class AtualizarSimulacaoCreditoServiceTest extends BaseTest {
 
     @Test
     @Tags(value = {@Tag("regressivo"),@Tag("atualizar_email")})
+    @Story("Atualizar Dados Cadastrais")
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Test Description : Atualizar o campo EMAIL")
     public void RealizarUmaAtualizacaoSimulacaoCreditoJaCadastradoNoAtributoEmail() {
         Faker faker = new Faker();
         //Criar uma simulação de credito
@@ -90,6 +95,9 @@ public class AtualizarSimulacaoCreditoServiceTest extends BaseTest {
 
     @Test
     @Tags(value = {@Tag("regressivo"),@Tag("atualizar_valor"),@Tag("withbug")})
+    @Story("Atualizar Dados Cadastrais")
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Test Description : Atualizar o campo VALOR")
     public void RealizarUmaAtualizacaoSimulacaoCreditoJaCadastradoNoAtributoValor() {
         //Criar uma simulação de credito
         requestSimulacaoCredito = SimulacaoStub.criarSimulacaoCreditoValida();
@@ -110,6 +118,9 @@ public class AtualizarSimulacaoCreditoServiceTest extends BaseTest {
 
     @Test
     @Tags(value = {@Tag("regressivo"),@Tag("atualizar_parcela")})
+    @Story("Atualizar Dados Cadastrais")
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Test Description : Atualizar o campo PARCELA")
     public void RealizarUmaAtualizacaoSimulacaoCreditoJaCadastradoNoAtributoParcela() {
         //Criar uma simulação de credito
         requestSimulacaoCredito = SimulacaoStub.criarSimulacaoCreditoValida();
@@ -128,6 +139,9 @@ public class AtualizarSimulacaoCreditoServiceTest extends BaseTest {
 
     @Test
     @Tags(value = {@Tag("regressivo"),@Tag("atualizar_seguro")})
+    @Story("Atualizar Dados Cadastrais")
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Test Description : Atualizar o campo SEGURO")
     public void RealizarUmaAtualizacaoSimulacaoCreditoJaCadastradoNoAtributoSeguro() {
         //Criar uma simulação de credito
         requestSimulacaoCredito = SimulacaoStub.criarSimulacaoCreditoValida();
@@ -147,6 +161,9 @@ public class AtualizarSimulacaoCreditoServiceTest extends BaseTest {
 
          @Test
          @Tags(value = {@Tag("regressivo"),@Tag("atualizar_cliente_nao_cadastrado")})
+         @Story("Atualizar Dados Cadastrais")
+         @Severity(SeverityLevel.NORMAL)
+         @Description("Test Description : Tentativa de atualiza cliente não cadastrado")
     public void RealiazarUmaAtualizacaoSimulacaoCreditoParaClienteNaoCadastrado(){
              //Criar uma simulação de credito
              requestSimulacaoCredito = SimulacaoStub.criarSimulacaoCreditoValida();

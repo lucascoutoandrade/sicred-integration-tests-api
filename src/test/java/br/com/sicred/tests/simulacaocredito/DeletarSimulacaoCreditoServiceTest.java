@@ -3,11 +3,13 @@ package br.com.sicred.tests.simulacaocredito;
 import br.com.sicred.client.SimulacoesCreditoClient;
 import br.com.sicred.dto.SimulacoesCreditoDTO;
 import br.com.sicred.stub.SimulacaoStub;
+import io.qameta.allure.*;
 import io.restassured.response.Response;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Tags;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
+
+@Epic("REST API Simulação de Crédito")
+@Feature("Validar a funcionalidade de excluir simulação de crédito")
 public class DeletarSimulacaoCreditoServiceTest {
 
     SimulacoesCreditoDTO requestSimulacaoCredito;
@@ -16,13 +18,16 @@ public class DeletarSimulacaoCreditoServiceTest {
 
     @Test
     @Tags(value = {@Tag("regressivo"), @Tag("deletar_simulacao"), @Tag("withbug")})
+    @Story("Deletar dados cadastrais")
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Test Description : Realizar uma remoção com sucesso")
     public void RealizarUmaRemocaoSimulacaoCreditoJaCadastrado() {
 
-        //Criar uma simulação de credito
+        //Criar uma simulação de crédito
         requestSimulacaoCredito = SimulacaoStub.criarSimulacaoCreditoValida();
         responseSimulacoesCredito = SimulacoesCreditoClient.criarUmaNovaSimulacaoDeCredito(requestSimulacaoCredito);
 
-        //Deletar simulacao de credito
+        //Deletar simulacao de crédito
         Response responseSimulacaoAtualizada = SimulacoesCreditoClient.deletarUmaSimulacaoCreditoJaCadastrada(responseSimulacoesCredito);
         responseSimulacaoAtualizada
                 .then()
@@ -34,11 +39,14 @@ public class DeletarSimulacaoCreditoServiceTest {
 
     @Test
     @Tags(value = {@Tag("regressivo"), @Tag("deletar_simulacao_nao_cadastrada"), @Tag("withbug")})
+    @Story("Deletar dados cadastrais")
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Test Description : Realizar uma remoção de simulação não cadastrada")
     public void RealizarUmaRemocaoSimulacaoCreditoNaoCadastrado() {
-        //Criar uma simulação de credito
+        //Criar uma simulação de crédito
         requestSimulacaoCredito = SimulacaoStub.criarSimulacaoCreditoValida();
 
-        //Deletar simulacao de credito sem cadastro
+        //Deletar simulacao de crédito sem cadastro
         requestSimulacaoCredito.setId(999);
         Response responseSimulacaoAtualizada = SimulacoesCreditoClient.deletarUmaSimulacaoCreditoJaCadastrada(requestSimulacaoCredito);
         responseSimulacaoAtualizada

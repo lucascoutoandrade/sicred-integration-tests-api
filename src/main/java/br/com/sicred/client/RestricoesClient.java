@@ -1,5 +1,6 @@
 package br.com.sicred.client;
 
+import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import lombok.AccessLevel;
@@ -11,7 +12,8 @@ import static io.restassured.RestAssured.given;
 public class RestricoesClient {
 
     public static Response validarPesquisaDeClientesComRestricoesPeloCPF(String clienteRestrito) {
-      return  given().contentType(ContentType.JSON)
+      return  given().filter(new AllureRestAssured())
+              .contentType(ContentType.JSON)
                 .basePath("restricoes")
                 .when()
                 .get(clienteRestrito)
