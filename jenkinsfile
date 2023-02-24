@@ -29,10 +29,10 @@ pipeline {
                    sh 'docker rmi -f rodrigolimaads/api-simulacao:1.0 && docker stop simulacao && docker rm simulacao'
 
                   }
-             }
+             
 
-        stage('Report Allure') {
-               steps {
+       
+               post {
                              // If Maven was able to run the tests, even if some of the test
                              // failed, record the test results and archive the jar file.
                              success { allure([
