@@ -231,7 +231,9 @@ public class CriarSimulacaoCreditoServiceTest extends BaseTest {
                 .then()
                 .statusCode(HttpStatus.SC_BAD_REQUEST)
                 .extract().path("erros.email");
-        Assertions.assertTrue(mensagemErro.equals("E-mail deve ser um e-mail válido")||mensagemErro.equals("não é um endereço de e-mail"),"descr_erro: "+mensagemErro+"");
+        Assertions.assertTrue(mensagemErro.equals("E-mail deve ser um e-mail válido")||mensagemErro.equals("não é um endereço de e-mail"),
+                "\n" + "Esperado: não é um endereço de e-mail " +
+                         "\n" + "Atual:"+mensagemErro+"");
 
     }
 
