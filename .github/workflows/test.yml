@@ -43,7 +43,7 @@
               run: docker pull rodrigolimaads/api-simulacao:1.0 
               
             - name:  Run Docker imagen
-              run: 'docker run api-simulacao:1.0 -d -p 8080:8080 --name simulacao'
+              run: 'docker run rodrigolimaads/api-simulacao:1.0 -d -p 8080:8080 --name simulacao'
               
 
             - name: Run tests
