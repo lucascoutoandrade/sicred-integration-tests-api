@@ -39,12 +39,14 @@
                 push: true
                 tags: |
                   rodrigolimaads/api-simulacao:1.0
-            - name: Pull Docker imagen
-              run: docker pull rodrigolimaads/api-simulacao:1.0 
-              
-            - name:  Run Docker imagen
-              run: 'docker run rodrigolimaads/api-simulacao:1.0 -d -p 8080:8080 --name simulacao'
+
+            - name: Start containers
+              run: docker-compose -f "docker-compose.yml" up -d --build
               
 
             - name: Run tests
               run: sleep 10 && mvn test -Dgroups="regressivo"
+
+            - name: Stop containers
+              if: always()
+              run: docker-compose -f "docker-compose.yml" down
