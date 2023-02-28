@@ -41,7 +41,7 @@
                   rodrigolimaads/api-simulacao:1.0
 
             - name: Start containers
-              run: docker-compose -f "docker-compose.yml" up  --build
+              run: docker-compose -f "docker-compose.yml" up -d --build
               
 
             - name: Run tests
