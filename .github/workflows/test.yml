@@ -43,7 +43,7 @@
               run: docker pull rodrigolimaads/api-simulacao:1.0 
               
             - name:  Run Docker imagen
-              run: 'docker-compose up -d'
+              run: 'docker run -d -p 8080:8080 simulacao'
               
 
             - name: Run tests
