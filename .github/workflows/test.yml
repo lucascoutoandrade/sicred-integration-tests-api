@@ -43,8 +43,8 @@
               run: docker pull rodrigolimaads/api-simulacao:1.0 
               
             - name:  Run Docker imagen
-              run: docker-compose up -d && sleep 5
+              run: 'docker-compose up -d'
               
 
             - name: Run tests
-              run: mvn test -Dgroups="regressivo"
+              run: sleep 10 && mvn test -Dgroups="regressivo"
