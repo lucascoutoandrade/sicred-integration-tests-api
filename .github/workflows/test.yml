@@ -43,7 +43,7 @@
                 tags: |
                   rodrigolimaads/api-simulacao:1.0
             - name: Pull and Run Docker imagen
-              run: docker pull rodrigolimaads/api-simulacao:latest && 'docker-compose up -d && sleep 5'
+              run: docker pull rodrigolimaads/api-simulacao:1.0 && 'docker-compose up -d && sleep 5'
 
             - name: Run tests
               run: mvn test -Dgroups="regressivo"
