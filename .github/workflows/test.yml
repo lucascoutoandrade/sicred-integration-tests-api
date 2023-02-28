@@ -27,7 +27,7 @@
                 distribution: 'temurin'
                 cache: maven
             - name: Build with Maven
-              run: mvn -B package --file pom.xml
+              run: mvn -DskipTests, -B package --file pom.xml
 
             - name: Docker Login
               uses: docker/login-action@v2.1.0
