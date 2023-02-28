@@ -39,7 +39,6 @@
               uses: docker/build-push-action@v3.2.0
               with:
                 cotext: .
-                file: .
                 push: true
                 tags: |
                   rodrigolimaads/api-simulacao:1.0
