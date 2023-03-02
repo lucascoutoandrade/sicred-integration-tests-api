@@ -32,20 +32,19 @@
                 username: ${{ secrets.USER_DOCKER }}
                 password: ${{ secrets.PASSWORD_DOCKER }}
 
-            - name: Build and Push Docker images
-              uses: docker/build-push-action@v3.2.0
-              with:
-                cotext: .
-                push: true
-                tags: |
-                  rodrigolimaads/api-simulacao:1.0
+#            - name: Build and Push Docker images
+#              uses: docker/build-push-action@v3.2.0
+#              with:
+#                cotext: .
+#                push: true
+#                tags: |
+#                  rodrigolimaads/api-simulacao:1.0
 
             - name: Start containers
-              run: docker-compose -f "docker-compose.yml" up -d --build
-              
+              run: docker-compose -f "docker-compose.yml" up -d --build && sleep 10
 
             - name: Run tests
-              run: sleep 10 && mvn test -Dgroups="regressivo"
+              run:  mvn test -Dgroups="regressivo"
 
             - name: Stop containers
               if: always()
