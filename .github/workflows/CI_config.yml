@@ -73,6 +73,5 @@
                 PUBLISH_BRANCH: gh-pages
                 PUBLISH_DIR: allure-history
 
-            - name: Stop containers
-                run: docker-compose -f "docker-compose.yml" down
+     
 
