@@ -47,9 +47,6 @@
               run:  mvn test -Dgroups="regressivo"
               continue-on-error: true
 
-            - name: Stop containers
-                run: docker rmi -f rodrigolimaads/api-simulacao:1.0 && docker stop simulacao && docker rm simulacao
-
             - name: Get Allure history
               uses: actions/checkout@v3
               if: always()
