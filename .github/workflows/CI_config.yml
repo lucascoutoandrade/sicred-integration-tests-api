@@ -48,7 +48,6 @@
               continue-on-error: true
 
             - name: Stop containers
-                if: always()
                 run: docker-compose -f "docker-compose.yml" down
 
             - name: Get Allure history
