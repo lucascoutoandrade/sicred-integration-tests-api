@@ -74,5 +74,6 @@
                 PUBLISH_DIR: allure-history
 
             - name: Stop containers
-                run: docker-compose -f "docker-compose.yml" down
+                if: always()
+                run: docker-compose down
 
