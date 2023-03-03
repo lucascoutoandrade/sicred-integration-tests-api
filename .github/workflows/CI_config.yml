@@ -47,6 +47,10 @@
               run:  mvn test -Dgroups="regressivo"
               continue-on-error: true
 
+            - name: Stop containers
+                if: always()
+                run: docker-compose -f "docker-compose.yml" down
+
             - name: Get Allure history
               uses: actions/checkout@v3
               if: always()
@@ -73,8 +77,6 @@
                 PUBLISH_BRANCH: gh-pages
                 PUBLISH_DIR: allure-history
 
-            - name: Stop containers
-                if: always()
-                run: docker-compose down
+
 
 
