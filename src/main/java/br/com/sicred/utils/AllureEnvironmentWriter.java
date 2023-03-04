@@ -40,12 +40,12 @@ public class AllureEnvironmentWriter {
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
             DOMSource source = new DOMSource(doc);
-            File allureResultsDir = new File(System.getProperty("user.dir") + "allure-results");
+            File allureResultsDir = new File(System.getProperty("user.dir") + "/allure-results");
             if (!allureResultsDir.exists()) {
                 allureResultsDir.mkdirs();
             }
 
-            StreamResult result = new StreamResult(new File(System.getProperty("user.dir") + "allure-results/environment.xml"));
+            StreamResult result = new StreamResult(new File(System.getProperty("user.dir") + "/allure-results/environment.xml"));
             transformer.transform(source, result);
         } catch (ParserConfigurationException | TransformerException var10) {
             var10.printStackTrace();
