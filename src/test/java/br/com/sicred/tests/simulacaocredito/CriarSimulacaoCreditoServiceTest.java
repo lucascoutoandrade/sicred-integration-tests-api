@@ -135,11 +135,11 @@ public class CriarSimulacaoCreditoServiceTest extends BaseTest {
         responseSimulacoesCredito
                 .then()
         //TODO:Bug04 Esperado: retornar erro <400> Apresentado: <201>
-        //.statusCode(HttpStatus.SC_BAD_REQUEST)
+        .statusCode(HttpStatus.SC_BAD_REQUEST)
         //TODO:Bug05 Esperado: retornar msg "seguro não deve ser vazio"  Apresentado: criado com sucesso
         //  Obs:API nao esta tratando mensagem de erro ao realizar a requisicao sem informar o atributo seguro (retorna 500  "Internal Server Error")
 
-        //.body("erros.seguro", is("seguro não deve ser vazio"))
+        .body("erros.seguro", is("seguro não deve ser vazio"))
         ;
 
     }
@@ -157,9 +157,9 @@ public class CriarSimulacaoCreditoServiceTest extends BaseTest {
         responseSimulacoesCredito
                 .then()
         //TODO: Bug06 Esperado: retornar erro <400> Apresentado: <201>
-        //.statusCode(HttpStatus.SC_BAD_REQUEST)
+        .statusCode(HttpStatus.SC_BAD_REQUEST)
         //TODO:Bug07 Esperado: retornar msg "Valor deve ser maior ou igual a R$ 1.000"  Apresentado: criado com sucesso
-        //.body("erros.valor",is(  "Valor deve ser maior ou igual a R$ 1.000"))
+        .body("erros.valor",is(  "Valor deve ser maior ou igual a R$ 1.000"))
         ;
 
     }
@@ -193,8 +193,8 @@ public class CriarSimulacaoCreditoServiceTest extends BaseTest {
         //TODO: Bug09 API de cadastro esta permitindo cadastrar com parcelas acima do permitido (>48)
         responseSimulacoesCredito
                 .then()
-         // .statusCode(HttpStatus.SC_BAD_REQUEST)
-         // .body("erros.parcelas",is(  "Parcelas deve ser igual ou menor que 48"))
+          .statusCode(HttpStatus.SC_BAD_REQUEST)
+          .body("erros.parcelas",is(  "Parcelas deve ser igual ou menor que 48"))
 
         ;
 
