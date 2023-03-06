@@ -11,6 +11,9 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 
+import static br.com.sicred.core.enums.Clientes.CLIENTE_COM_RESTRICAO_NO_CPF;
+import static org.hamcrest.CoreMatchers.is;
+
 @Epic("REST API Restrição de Crédito")
 @Feature("Validar a funcionalidade de restrição")
 public class RestricaoCreditoServiceTest extends BaseTest {
@@ -22,11 +25,11 @@ public class RestricaoCreditoServiceTest extends BaseTest {
     @DisplayName("Realizar uma consultar na API com CPF que POSSUI restrição.")
     @Description("Test Description :Realizar uma consultar na API com CPF que POSSUI restrição.")
     public void validarConsultaNaAPIRestricoesComClienteQuePOSSUIRestricao() {
-        Response responseRetricoesGet = RestricoesClient.validarPesquisaDeClientesComRestricoesPeloCPF(Clientes.CLIENTE_COM_RESTRICAO_NO_CPF.get());
+        Response responseRetricoesGet = RestricoesClient.validarPesquisaDeClientesComRestricoesPeloCPF(CLIENTE_COM_RESTRICAO_NO_CPF.get());
         responseRetricoesGet
                 .then()
                 .statusCode(HttpStatus.SC_OK)
-                .body("mensagem", is("O CPF "+CLIENTE_COM_RESTRICAO+" possui restrição"))
+                .body("mensagem", is("O CPF "+CLIENTE_COM_RESTRICAO_NO_CPF.get()+" possui restrição"))
         //TODO: Bug14 esperada: "O CPF 99999999999 possui restrição", mas retorno "O CPF 19626829001 tem problema"
 
         ;

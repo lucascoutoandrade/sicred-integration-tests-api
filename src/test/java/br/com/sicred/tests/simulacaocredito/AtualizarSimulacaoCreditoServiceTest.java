@@ -110,10 +110,8 @@ public class AtualizarSimulacaoCreditoServiceTest extends BaseTest {
                 .then()
                 .statusCode(HttpStatus.SC_OK)
         //TODO:Bug10 API de Atualização não esta atualizando o atributo valor
-        /*.body("valor",not(requestSimulacaoCredito.getValor()),
-                        "valor",is(responseSimulacoesCredito.getValor()))
-        */
-        ;
+        .body("valor",not(requestSimulacaoCredito.getValor()),
+                        "valor",is(responseSimulacoesCredito.getValor()));
     }
 
     @Test

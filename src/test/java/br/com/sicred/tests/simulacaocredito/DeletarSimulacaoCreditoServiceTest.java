@@ -5,7 +5,10 @@ import br.com.sicred.dto.SimulacoesCreditoDTO;
 import br.com.sicred.stub.SimulacaoStub;
 import io.qameta.allure.*;
 import io.restassured.response.Response;
+import org.apache.commons.httpclient.HttpStatus;
 import org.junit.jupiter.api.*;
+
+import static org.hamcrest.CoreMatchers.is;
 
 
 @Epic("REST API Simulação de Crédito")
@@ -31,7 +34,7 @@ public class DeletarSimulacaoCreditoServiceTest {
         Response responseSimulacaoAtualizada = SimulacoesCreditoClient.deletarUmaSimulacaoCreditoJaCadastrada(responseSimulacoesCredito);
         responseSimulacaoAtualizada
                 .then()
-        //.statusCode(HttpStatus.SC_NO_CONTENT)
+        .statusCode(HttpStatus.SC_NO_CONTENT)
         ;
         //TODO: Bug11 Status code esta retornado 200 porém conforme as regras da API o correto seria retorna 204 ao remover uma simulação
 
@@ -51,8 +54,8 @@ public class DeletarSimulacaoCreditoServiceTest {
         Response responseSimulacaoAtualizada = SimulacoesCreditoClient.deletarUmaSimulacaoCreditoJaCadastrada(requestSimulacaoCredito);
         responseSimulacaoAtualizada
                 .then()
-        //  .statusCode(HttpStatus.SC_NO_CONTENT)
-        //     .body("mensagem",is("simulação não encontrada"))
+         .statusCode(HttpStatus.SC_NO_CONTENT)
+                .body("mensagem",is("simulação não encontrada"))
         ;
         //TODO: Bug12 Status code esta retornado 200 porém conforme as regras da API o correto seria retorna 204 e uma mesagem de erro
         // para quando a simulação pesquisada não existe.
