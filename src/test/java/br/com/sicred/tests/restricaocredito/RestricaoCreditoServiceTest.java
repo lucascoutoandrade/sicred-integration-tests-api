@@ -26,7 +26,7 @@ public class RestricaoCreditoServiceTest extends BaseTest {
         responseRetricoesGet
                 .then()
                 .statusCode(HttpStatus.SC_OK)
-              //.body("mensagem", is("O CPF "+CLIENTE_COM_RESTRICAO+" possui restrição"))
+                .body("mensagem", is("O CPF "+CLIENTE_COM_RESTRICAO+" possui restrição"))
         //TODO: Bug14 esperada: "O CPF 99999999999 possui restrição", mas retorno "O CPF 19626829001 tem problema"
 
         ;
