@@ -61,9 +61,9 @@ public class CriarSimulacaoCreditoServiceTest extends BaseTest {
         responseSimulacoesCreditoJaCadastrado
                 .then()
         //TODO:Bug02 Esperado: status code "409" mas Apresentado: "400"
-        //.statusCode(HttpStatus.SC_CONFLICT)
+        .statusCode(HttpStatus.SC_CONFLICT)
         //TODO:bug03 Esperado: msg "CPF já existente" mas Apresentado: "CPF duplicado"
-        //.body("mensagem", is("CPF já existente"))
+        .body("mensagem", is("CPF já existente"))
         ;
 
     }
