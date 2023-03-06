@@ -1,0 +1,1 @@
+{"total":2,"items":[{"uid":"ebfa44111f65bea890dfd0a4fee3630a","name":"REST API Simulação de Crédito","statistic":{"failed":3,"broken":0,"skipped":0,"passed":1,"unknown":0,"total":4}},{"uid":"1a481a17049752bd2cb727bf72bd954c","name":"REST API Restrição de Crédito","statistic":{"failed":1,"broken":0,"skipped":0,"passed":0,"unknown":0,"total":1}}]}
