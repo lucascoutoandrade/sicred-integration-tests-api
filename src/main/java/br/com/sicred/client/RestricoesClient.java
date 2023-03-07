@@ -10,11 +10,12 @@ import static io.restassured.RestAssured.given;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class RestricoesClient {
+    private static final String ENDPOINT_RETRICOES = "restricoes";
 
     public static Response validarPesquisaDeClientesComRestricoesPeloCPF(String clienteRestrito) {
       return  given().filter(new AllureRestAssured())
               .contentType(ContentType.JSON)
-                .basePath("restricoes")
+                .basePath(ENDPOINT_RETRICOES)
                 .when()
                 .get(clienteRestrito)
                 .then()

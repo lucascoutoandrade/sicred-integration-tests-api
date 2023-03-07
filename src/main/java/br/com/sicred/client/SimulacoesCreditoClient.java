@@ -14,13 +14,15 @@ import static io.restassured.RestAssured.given;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class SimulacoesCreditoClient {
+    
+    private static final String ENDPOINT_SIMULACOES = "simulacoes";
 
     public static SimulacoesCreditoDTO criarUmaNovaSimulacaoDeCredito(SimulacoesCreditoDTO simulacoesCredito) {
       return  given().filter(new AllureRestAssured())
                 .contentType(ContentType.JSON)
                 .body(simulacoesCredito)
                 .when()
-                .post("simulacoes")
+                .post(ENDPOINT_SIMULACOES)
                 .then()
                 .statusCode(HttpStatus.SC_CREATED)
                 .extract().as(SimulacoesCreditoDTO.class);
@@ -31,7 +33,7 @@ public class SimulacoesCreditoClient {
         return  given().filter(new AllureRestAssured())
                 .body(simulacoesCredito)
                 .when()
-                .post("simulacoes")
+                .post(ENDPOINT_SIMULACOES)
                 .then()
                 .extract().response();
 
@@ -41,7 +43,7 @@ public class SimulacoesCreditoClient {
         return  given().filter(new AllureRestAssured())
                 .body(simulacoesCredito)
                 .when()
-                .post("simulacoes")
+                .post(ENDPOINT_SIMULACOES)
                 .then()
                 .extract().response();
 
@@ -50,7 +52,7 @@ public class SimulacoesCreditoClient {
         return  given().filter(new AllureRestAssured())
                 .body(simulacoesCredito)
                 .when()
-                .post("simulacoes")
+                .post(ENDPOINT_SIMULACOES)
                 .then()
                 .extract().response();
 
@@ -60,7 +62,7 @@ public class SimulacoesCreditoClient {
 
         return  given().filter(new AllureRestAssured())
                 .contentType(ContentType.JSON)
-                .basePath("simulacoes")
+                .basePath(ENDPOINT_SIMULACOES)
                 .body(simulacoesCredito)
                 .when()
                 .put(simulacoesCredito.getCpf())
@@ -72,7 +74,7 @@ public class SimulacoesCreditoClient {
 
         return  given().filter(new AllureRestAssured())
                 .contentType(ContentType.JSON)
-                .basePath("simulacoes")
+                .basePath(ENDPOINT_SIMULACOES)
                 .body(novoCpf)
                 .when()
                 .put(simulacaoCriada.getCpf())
@@ -85,7 +87,7 @@ public class SimulacoesCreditoClient {
     public static Response deletarUmaSimulacaoCreditoJaCadastrada(SimulacoesCreditoDTO responseSimulacoesCredito) {
         return given().filter(new AllureRestAssured())
                 .contentType(ContentType.JSON)
-                .basePath("simulacoes")
+                .basePath(ENDPOINT_SIMULACOES)
                 .when()
                 .delete(String.valueOf(responseSimulacoesCredito.getId()))
                 .then()
@@ -95,7 +97,7 @@ public class SimulacoesCreditoClient {
     public static List<SimulacoesCreditoDTO> pesquisarListaSimulacaoCreditoCadastrados() {
 
           return  given().filter(new AllureRestAssured())
-                .basePath("simulacoes")
+                .basePath(ENDPOINT_SIMULACOES)
                 .when()
                 .get()
                 .then()
@@ -107,7 +109,7 @@ public class SimulacoesCreditoClient {
 
     public static List<Integer> buscarIdsDasSimulacoesCadastradas() {
         return  given().filter(new AllureRestAssured())
-                .basePath("simulacoes")
+                .basePath(ENDPOINT_SIMULACOES)
                 .when()
                 .get()
                 .then()
@@ -119,7 +121,7 @@ public class SimulacoesCreditoClient {
 
     public static List<SimulacoesCreditoDTO> pesquisarSimulacaoCreditoListaVazia() {
         return  given().filter(new AllureRestAssured())
-                .basePath("simulacoes")
+                .basePath(ENDPOINT_SIMULACOES)
                 .when()
                 .get()
                 .then()
@@ -130,7 +132,7 @@ public class SimulacoesCreditoClient {
 
     public static Response pesquisarSimulacaoDeCreditoPorCPF(SimulacoesCreditoDTO requestSimulacaoCredito) {
        return    given().filter(new AllureRestAssured())
-                .basePath("simulacoes")
+                .basePath(ENDPOINT_SIMULACOES)
                 .when()
                 .get(requestSimulacaoCredito.getCpf())
                 .then()
