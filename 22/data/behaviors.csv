@@ -1,0 +1,7 @@
+"Epic","Feature","Story","FAILED","BROKEN","PASSED","SKIPPED","UNKNOWN"
+"REST API Simulação de Crédito","Validar a funcionalidade de criar simulação de crédito","Criar simulação de crédito","4","0","8","0","0"
+"REST API Simulação de Crédito","Validar a funcionalidade de atualização da simulação de crédito","Atualizar Dados Cadastrais","1","0","6","0","0"
+"REST API Simulação de Crédito","Validar a funcionalidade de excluir simulação de crédito","Deletar dados cadastrais","2","0","0","0","0"
+"REST API Restrição de Crédito","Validar a funcionalidade de restrição","Pesquisar clientes COM restrições","1","0","0","0","0"
+"REST API Restrição de Crédito","Validar a funcionalidade de restrição","Pesquisar clientes SEM restrições","0","0","1","0","0"
+"REST API Simulação de Crédito","Validar a funcionalidade de buscar da simulações de crédito","Pesquisar dados cadastrais","0","0","4","0","0"
