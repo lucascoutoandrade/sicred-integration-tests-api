@@ -4,4 +4,4 @@ services:
     container_name: simulacao
     image: rodrigolimaads/api-simulacao:1.0
     ports:
-      - "8080:8080"
+      - "8001:8001"
