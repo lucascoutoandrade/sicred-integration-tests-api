@@ -15,7 +15,14 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.io.File;
 
+
 public class AllureEnvironmentWriter {
+    static Description description;
+    static Story story;
+    static Epic epic;
+    static Severity severity;
+    static DisplayName displayName;
+
 
     public AllureEnvironmentWriter() {
     }
@@ -85,4 +92,53 @@ public class AllureEnvironmentWriter {
         }
 
     }
+ 
+
+
+    @BeforeEach
+    public void setupScenario() {
+        Method[] methods = getClass().getMethods();
+        Method method = methods[0];
+        description = method.getAnnotation(Description.class);
+        story = method.getAnnotation(Story.class);
+        epic = method.getAnnotation(Epic.class);
+        severity = method.getAnnotation(Severity.class);
+        displayName = method.getAnnotation(DisplayName.class);
+
+
+    }
+
+    public static String descriptionTest(Annotations tag) {
+        String value = "";
+
+        try {
+            switch (tag) {
+                case DESCRIPTION:
+                    value = description.value();
+                    break;
+                case STORY:
+                    value = story.value();
+                    break;
+                case EPIC:
+                    value = epic.value();
+                    break;
+                case DISPLAY_NAME:
+                    value = displayName.value();
+                    break;
+                case SEVERITY:
+                    value = String.valueOf(severity.value());
+                    break;
+                default:
+                    value = "Tag não encontrada";
+                    break;
+            }
+
+        } catch (Exception e) {
+            log.info(e.getMessage());
+        }
+        return value;
+    }
+
+}
+
 }
